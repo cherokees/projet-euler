@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le plus grand produit palindrome</title>
+</head>
+
+<body>
+
+    <!-- 
+    1/ faire une boucle
+    2/ faire une seconde boucle
+    3/ multiplier les 2 itérations de la boucles
+    4/ condition : si le le produit des deux itérations est égale à un palindrome
+    5/ Renvoyer le produit
+ -->
+
+    <script>
+        function transformeUnite(para_int) {
+            let premierNombre = 1;
+            let resultat = [];
+            let int_iteration = 0;
+            let resultat_int = 0;
+            for (let i = 1; i < para_int; i++) {
+                if (i === 1) {
+                    resultat.push(premierNombre);
+                }
+                resultat.push(int_iteration);
+            }
+            resultat = resultat.join('');
+            resultat = parseInt(resultat);
+            return resultat;
+        }// fin fct
+
+        console.log(transformeUnite(2));
+
+        function ReverseString(str) {
+
+            // Check input 
+            if (!str || str.length < 2 ||
+                typeof str !== 'string') {
+                return 'Not valid';
+            }
+
+            // Take empty array revArray 
+            const revArray = [];
+            const length = str.length - 1;
+
+            // Looping from the end 
+            for (let i = length; i >= 0; i--) {
+                revArray.push(str[i]);
+            }
+
+            // Joining the array elements 
+            return revArray.join('');
+        }
+
+        function valeur_max(tableau) {
+            var max = -Infinity;
+            for (i = 0; i < tableau.length; i++) if (tableau[i] > max) max = tableau[i];
+            return max;
+        }
+
+        function lePlusGrandPalindrome(para_int) {
+            para_int_decimal = transformeUnite(para_int);
+            let imax = para_int_decimal * 10 - 1;
+            let imin = para_int_decimal - 1;
+            let resultat_définitif = [];
+            for (let i = imax; i > imin; i--) {
+                for (let j = i; j > imin; j--) {
+                    let resultat = i * j;
+                    resultat = resultat.toString();
+                    console.log(resultat)
+                    if (resultat === ReverseString(resultat)) {
+                        resultat = parseInt(resultat, 10)
+                        resultat_définitif.push(resultat);
+                    }
+                }
+            }
+            return valeur_max(resultat_définitif);
+        }
+
+        console.log(lePlusGrandPalindrome(3))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le plus grand facteur premier</title>
+</head>
+
+<body>
+    <script>
+
+        function nbrPremier(nbr) {
+            for (var i = 2; i < nbr; i++)
+                if (nbr % i === 0) return false;
+            return nbr > 1;
+        }
+
+        function facteurPremier(para_int) {
+            let arr_resultat = [];
+            let somme = 0;
+            if (Number.isInteger(para_int) === true) {
+                for (let i = 0; i < 10000; i++) {
+                    somme = para_int / i;
+                    console.log(somme)
+                    if (Number.isInteger(somme) === true) {
+                        if (nbrPremier(i) === true) {
+                            arr_resultat.push(i);
+                            console.log(arr_resultat);
+                        }
+                    }
+                }
+            }
+            return arr_resultat;
+        }//fin fct
+
+        console.log(facteurPremier(600851475143));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple de 3 et de 5</title>
+</head>
+
+<body>
+
+    <script>
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+        function MultipleDe3Et5(para_int_max) {
+            let arr_resultat = [];
+            for (let i = 0; i < para_int_max; i++) {
+                if (i % 3 === 0) {
+                    arr_resultat.push(i);
+                    // console.log(arr_resultat);
+                }
+                else if (i % 5 === 0) {
+                    arr_resultat.push(i);
+                    // console.log(arr_resultat);
+                }
+            }
+            return arr_resultat.reduce(reducer);
+        } // fin fct
+
+        console.log(MultipleDe3Et5(19564));
+
+        // MultipleDe(para_int_max , para_int_1 , para_int_2)  pour l'exemple précédent ce serait multipleMuscle(10 , 3 , 5)  
+
+        function MultipleDe(para_int_max, para_int_1, para_int_2) {
+            let arr_resultat = [];
+            for (let i = 0; i < para_int_max; i++) {
+                if (i % para_int_1 === 0) {
+                    arr_resultat.push(i);
+                    // console.log(arr_resultat);
+                }
+                else if (i % para_int_2 === 0) {
+                    arr_resultat.push(i);
+                    // console.log(arr_resultat);
+                }
+            }
+            return arr_resultat.reduce(reducer);
+        } // fin fct
+
+        console.log(MultipleDe(19564));
+
+        ////////////////
+        // manière alternative de la fonction MultipleDe3et5
+        function MultipleDe3Et5_alt(para_int_max) {
+            return MultipleDe(para_int_max, 3, 5);
+        } // fin fct
+
+
+    </script>
+
+</body>
+
+</html>

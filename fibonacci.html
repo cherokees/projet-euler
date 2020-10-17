@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre pairs de Fibonacci</title>
+</head>
+
+<body>
+    <script>
+
+        function fibonacci(para_int_max) {
+            let arr_resultat = [1, 2];
+            let imax = para_int_max;
+            for (let i = 0; i < imax; i++) {
+                arr_resultat.push(arr_resultat[i] + arr_resultat[i + 1]);
+                console.log(arr_resultat)
+            };
+            return arr_resultat;
+        }; //fin fct
+
+        console.log(fibonacci(10));
+    </script>
+</body>
+
+</html>
