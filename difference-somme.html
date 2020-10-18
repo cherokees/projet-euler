@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonction qui donne la difference de carré de somme</title>
+</head>
+
+<body>
+
+    <!-- 
+        1-Faire la somme des nombres au carré jusqu'à para_int 
+        2-Faire la somme au carre des nombres jusqu'à para_int
+        3-Faire la différence entre les deux sommes
+     -->
+
+    <script>
+
+        function fct_somme_nbr_carre(para_int) {
+            let resultat = 0;
+            let imax = para_int;
+            for (let i = 0; i <= imax; i++) {
+                let calcul_carre = i * i
+                resultat += calcul_carre;
+            }
+            return resultat;
+        }//fin fct 
+        console.log(fct_somme_nbr_carre(10))
+
+        function fct_somme_carre_nbr(para_int) {
+            let resultat = 0;
+            let imax = para_int;
+            for (let i = 0; i <= imax; i++) {
+                resultat += i;
+            }
+            resultat = resultat * resultat;
+            return resultat;
+        }//fin fct
+        console.log(fct_somme_carre_nbr(10))
+
+
+        function dif_somme_carre(para_int) {
+            let somme_nombre_carre = fct_somme_nbr_carre(para_int);
+            let somme_carre_nombre = fct_somme_carre_nbr(para_int);
+            return somme_carre_nombre - somme_nombre_carre;
+        }//fin fct
+        console.log(dif_somme_carre(100));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fonction le plus petit nombres</title>
+</head>
+
+<body>
+    <script>
+        // function verification_parametre(para_int) {
+        //     let resultat = [];
+        //     for (let i = 1; i <= para_int; i++) {
+        //         resultat.push(i)
+        //         console.log(resultat)
+        //     }
+        //     return resultat;
+        // }//fin fonction
+
+        // console.log(verification_parametre(5))
+
+        // function plus_petit_nombre(para_int) {
+        //     let resultat = [];
+        //     for (let i = para_int; i >= 1; i--) {
+        //         for (let j = 0; j < 1000; j++) {
+        //             if (j % i === 0) {
+        //                 resultat.push(j)
+        //                 console.log(resultat)
+        //             }
+        //         }
+        //     }
+        //     return resultat
+
+        // }//fin fonction
+
+        // console.log(plus_petit_nombre(5))
+
+        //Correction
+
+        //LCM de deux numéros
+        function lcm(a, b) {
+            return (a * b) / gcd(a, b);
+        }
+
+        //Algorithme récursif euclidien
+        function gcd(a, b) {
+            if (b === 0) return a;
+            return gcd(b, a % b);
+        }
+
+        function smallestMult(n) {
+            let maxLCM = 1;
+
+            //Faire entrer le LCM dans la gamme
+            for (let i = 2; i <= n; i++) {
+                maxLCM = lcm(maxLCM, i);
+            }
+            return maxLCM;
+        }
+
+        console.log(smallestMult(5))
+
+    </script>
+</body>
+
+</html>
