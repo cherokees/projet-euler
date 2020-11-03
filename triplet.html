@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triplet spécial de pythagore</title>
+</head>
+
+<body>
+
+    <!-- Il existe exactement un triplet de Pythagore pour lequel a + b + c = 1000. Trouvez le produit abc tel que a + b + c = n. -->
+
+    <script>
+
+        function triplet(paraInt) {
+            for (let i = 1; i < 10; i++) {
+                let u = i;
+                for (let j = 2; j <= 10; j++) {
+                    let v = j;
+                    let a = (2 * u) * v;
+                    let b = v * v - u * u;
+                    let c = u * u + v * v;
+                    let carreC = c * c;
+
+                    console.log(carreC)
+                    if (carreC === 1000) {
+                        console.log(c)
+                    }
+                }
+
+            }
+        }//fin fct
+
+        console.log(triplet(1000))
+
+        // console.log(Math.sqrt(25))
+
+        //a = 2 * u * v ; b = u² - v² ; c = u² + v²
+
+
+        //Correction Exercice 
+
+        function specialPythagoreanTriplet(n) {
+            let sumOfabc = n;
+            for (let a = 1; a < n; a++) {
+                for (let b = a; b < n; b++) {
+                    let c = n - a - b;
+                    if (c > 0) {
+                        if (c ** 2 == a ** 2 + b ** 2) {
+                            return a * b * c;
+                        }
+                    }
+                }
+            }
+        }
+
+        specialPythagoreanTriplet(1000);
+
+    </script>
+
+</body>
+
+</html>
